@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout Code
         uses: actions/checkout@v3
 
       - name: Login to Docker Hub
@@ -19,12 +19,25 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Build Backend Image
+      - name: Build and Push Backend Image
         run: |
           docker build -t shubham3177/crud-dd-task-mean-app-backend:latest ./backend
           docker push shubham3177/crud-dd-task-mean-app-backend:latest
 
-      - name: Build Frontend Image
+      - name: Build and Push Frontend Image
         run: |
           docker build -t shubham3177/crud-dd-task-mean-app-frontend:latest ./frontend
           docker push shubham3177/crud-dd-task-mean-app-frontend:latest
+
+      - name: Deploy to EC2 via SSH
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ubuntu
+          key: ${{ secrets.EC2_KEY }}
+          script: |
+            cd /home/ubuntu
+            docker pull shubham3177/crud-dd-task-mean-app-backend:latest
+            docker pull shubham3177/crud-dd-task-mean-app-frontend:latest
+            docker compose down
+            docker compose up -d
