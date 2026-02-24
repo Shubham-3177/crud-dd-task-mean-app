@@ -1,16 +1,12 @@
-# ╔══════════════════════════════════════════════════════════╗
 # 🚀 CRUD DD Task – MEAN Stack Application
-# ╚══════════════════════════════════════════════════════════╝
+---
 
 A production-ready full-stack MEAN (MongoDB, Express, Angular, Node.js) CRUD application containerized with Docker and deployed using CI/CD via GitHub Actions to AWS EC2.
 
 ---
 
-# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-# 📌 PROJECT OVERVIEW
-# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-This project demonstrates:
+## 📌 Project Overview
+---
 
 ✔ Full-stack CRUD application using MEAN stack  
 ✔ Multi-container Docker architecture  
@@ -21,21 +17,20 @@ This project demonstrates:
 
 ---
 
-# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-# 🏗️ TECH STACK
-# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+## 🏗️ Tech Stack
+---
 
-## 🔹 Backend
+### Backend
 - Node.js  
 - Express.js  
 - MongoDB  
 - Mongoose  
 
-## 🔹 Frontend
+### Frontend
 - Angular 15  
 - Bootstrap  
 
-## 🔹 DevOps & Deployment
+### DevOps & Deployment
 - Docker  
 - Docker Compose  
 - GitHub Actions  
@@ -45,23 +40,21 @@ This project demonstrates:
 
 ---
 
-# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-# 🐳 DOCKER ARCHITECTURE
-# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+## 🐳 Docker Architecture
+---
 
 The application runs using three containers:
 
-1️⃣ MongoDB → Database  
-2️⃣ Backend → Node + Express API  
-3️⃣ Frontend → Angular app served via Nginx  
+1. MongoDB – Database  
+2. Backend – Node + Express API  
+3. Frontend – Angular app served via Nginx  
 
 All services are orchestrated using `docker-compose.yml`.
 
 ---
 
-# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-# 📂 PROJECT STRUCTURE
-# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+## 📂 Project Structure
+---
 
 ```
 crud-dd-task-mean-app/
@@ -80,106 +73,99 @@ crud-dd-task-mean-app/
 
 ---
 
-# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-# ⚙️ RUNNING LOCALLY WITH DOCKER
-# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+## ⚙️ Running Locally with Docker
+---
 
-## Step 1: Clone Repository
-
+### Clone Repository
 ```bash
 git clone https://github.com/Shubham-3177/crud-dd-task-mean-app.git
 cd crud-dd-task-mean-app
 ```
 
-## Step 2: Start Containers
-
+### Start Containers
 ```bash
 docker compose up -d --build
 ```
 
-## Step 3: Access Application
-
+### Access Application
 Frontend → http://localhost  
 Backend API → http://localhost:8080  
 MongoDB → localhost:27017  
 
 ---
 
-# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-# 🐳 DOCKER HUB IMAGES
-# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+## 🖼️ Demo Output
+---
 
-Backend Image  
-shubham3177/crud-dd-task-mean-app-backend:latest  
+### 🔹 Tutorial 
+![Tutorial Page](https://github.com/Shubham-3177/crud-dd-task-mean-app/blob/main/images/tutorial.png)
 
-Frontend Image  
-shubham3177/crud-dd-task-mean-app-frontend:latest  
+### 🔹 Add_Tutorial
+![Add_Tutorial Page](https://github.com/Shubham-3177/crud-dd-task-mean-app/blob/main/images/add_tutorial.png)
+
+### 🔹 Running Instance
+![Running Instance](https://github.com/Shubham-3177/crud-dd-task-mean-app/blob/main/images/instance.jpeg)
+
 
 ---
 
-# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-# 🔁 CI/CD PIPELINE (GITHUB ACTIONS)
-# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+## 🐳 Docker Hub Images
+---
 
-The pipeline is triggered on every push to the `main` branch.
-
-## Workflow Steps
-
-1️⃣ Checkout code  
-2️⃣ Login to Docker Hub  
-3️⃣ Build Backend Docker image  
-4️⃣ Push Backend image to Docker Hub  
-5️⃣ Build Frontend Docker image  
-6️⃣ Push Frontend image to Docker Hub  
-7️⃣ SSH into EC2  
-8️⃣ Pull latest images  
-9️⃣ Restart containers using Docker Compose  
-
-Workflow file location:
-
-```
-.github/workflows/deploy.yml
-```
+Backend → shubham3177/crud-dd-task-mean-app-backend:latest  
+Frontend → shubham3177/crud-dd-task-mean-app-frontend:latest  
 
 ---
 
-# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-# ☁️ AWS EC2 DEPLOYMENT
-# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+## 🔁 CI/CD Pipeline (GitHub Actions)
+---
 
-## Deployment Flow
+Triggered on every push to `main` branch.
 
-✔ EC2 instance configured with Docker & Docker Compose  
-✔ Nginx stopped (Docker handles port 80)  
-✔ docker-compose.yml present in /home/ubuntu  
-✔ CI/CD automatically updates containers on every push  
+1. Checkout code  
+2. Login to Docker Hub  
+3. Build Backend Docker image  
+4. Push Backend image  
+5. Build Frontend Docker image  
+6. Push Frontend image  
+7. SSH into EC2  
+8. Pull latest images  
+9. Restart containers  
 
-Live Application:
+Workflow file: `.github/workflows/deploy.yml`
 
+---
+
+## ☁️ AWS EC2 Deployment
+---
+
+✔ EC2 configured with Docker & Docker Compose  
+✔ Port 80 exposed  
+✔ docker-compose.yml inside `/home/ubuntu`  
+✔ Automatic container updates via CI/CD  
+
+Live Application:  
 ```
 http://<EC2-PUBLIC-IP>
 ```
 
 ---
 
-# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-# 🔐 GITHUB SECRETS USED
-# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+## 🔐 GitHub Secrets
+---
 
-1️⃣ DOCKER_USERNAME  
-2️⃣ DOCKER_PASSWORD  
-3️⃣ EC2_HOST  
-4️⃣ EC2_KEY  
+- DOCKER_USERNAME  
+- DOCKER_PASSWORD  
+- EC2_HOST  
+- EC2_KEY  
 
-Configured under:
-
+Configured under:  
 GitHub → Settings → Secrets and Variables → Actions  
 
 ---
 
-# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-# ✨ FEATURES IMPLEMENTED
-# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+## ✨ Features
+---
 
 ✔ Create Data  
 ✔ Read Data  
@@ -187,29 +173,13 @@ GitHub → Settings → Secrets and Variables → Actions
 ✔ Delete Data  
 ✔ Containerized Architecture  
 ✔ Automated CI/CD Deployment  
-✔ Production-ready Docker images  
 
 ---
 
-# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-# 🎯 WHAT THIS PROJECT DEMONSTRATES
-# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-✔ Real-world DevOps workflow  
-✔ Containerized full-stack application  
-✔ Infrastructure automation  
-✔ Cloud deployment  
-✔ CI/CD best practices  
-
+## 👨‍💻 Author
 ---
-
-# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-# 👨‍💻 AUTHOR
-# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Shubham S Kadatare  
 DevOps Engineer | Cloud & Automation Enthusiast  
 
-If you found this project useful, feel free to ⭐ star the repository.
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+If this project helped you, consider giving it a ⭐
